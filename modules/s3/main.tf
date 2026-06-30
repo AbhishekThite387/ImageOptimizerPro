@@ -28,7 +28,8 @@ resource "aws_s3_bucket_cors_configuration" "destination_cors" {
 
     allowed_origins = [
       "http://127.0.0.1:5500",
-      "http://localhost:5500"
+      "http://localhost:5500",
+      "http://img-processor-frontend-ap-south-1.s3-website.ap-south-1.amazonaws.com"
     ]
 
     expose_headers = [
