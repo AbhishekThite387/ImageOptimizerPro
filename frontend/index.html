@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Optimizer Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========================
+       NAVIGATION BAR
+  ========================= -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <!-- Logo + Project Name -->
+        <div class="nav-logo">
+          <div class="logo-icon">
+            <svg
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                x="2"
+                y="2"
+                width="28"
+                height="28"
+                rx="8"
+                fill="url(#logoGrad)"
+              />
+              <path
+                d="M8 22L13 15L17 19L21 13L24 22H8Z"
+                fill="white"
+                opacity="0.9"
+              />
+              <circle cx="22" cy="10" r="3" fill="white" opacity="0.9" />
+              <defs>
+                <linearGradient id="logoGrad" x1="0" y1="0" x2="32" y2="32">
+                  <stop offset="0%" stop-color="#7C3AED" />
+                  <stop offset="100%" stop-color="#4F46E5" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="logo-text"
+            >Image <span class="logo-accent">Optimizer Pro</span></span
+          >
+        </div>
+
+        <!-- Nav Actions -->
+        <div class="nav-actions">
+          <a
+            href="https://github.com/AbhishekThite387"
+            target="_blank"
+            rel="noopener"
+            class="nav-btn btn-ghost"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" class="btn-icon">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+              />
+            </svg>
+            GitHub
+          </a>
+          <a href="#" class="nav-btn btn-primary">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="btn-icon"
+            >
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+            Docs
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ========================
+       HERO SECTION
+  ========================= -->
+    <section class="hero">
+      <div class="hero-bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+      <div class="container hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Powered by AWS Serverless
+        </div>
+        <h1 class="hero-title">
+          Image <span class="gradient-text">Optimizer</span> Pro
+        </h1>
+        <p class="hero-subtitle">
+          Resize, Compress and Convert Images using AWS Serverless Technologies
+        </p>
+
+        <!-- Feature Badges -->
+        <div class="feature-badges">
+          <span class="feature-badge">
+            <img
+              src="https://img.shields.io/badge/-AWS%20Lambda-FF9900?style=flat&logo=awslambda&logoColor=white"
+              alt="AWS Lambda"
+            />
+          </span>
+          <span class="feature-badge">
+            <img
+              src="https://img.shields.io/badge/-Amazon%20S3-569A31?style=flat&logo=amazons3&logoColor=white"
+              alt="Amazon S3"
+            />
+          </span>
+          <span class="feature-badge">
+            <img
+              src="https://img.shields.io/badge/-Terraform-7B42BC?style=flat&logo=terraform&logoColor=white"
+              alt="Terraform"
+            />
+          </span>
+          <span class="feature-badge">
+            <img
+              src="https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white"
+              alt="GitHub Actions"
+            />
+          </span>
+          <span class="feature-badge">
+            <img
+              src="https://img.shields.io/badge/-CloudWatch-FF4F8B?style=flat&logo=amazonaws&logoColor=white"
+              alt="CloudWatch"
+            />
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================
+       MAIN APP SECTION
+  ========================= -->
+    <main class="main-app">
+      <div class="container">
+        <!-- ---- INPUT SECTION ---- -->
+        <section class="card input-section" id="inputSection">
+          <h2 class="section-title">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="section-icon"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            Select Image
+          </h2>
+
+          <!-- Tab Switcher -->
+          <div class="input-tabs">
+            <button class="tab-btn active" id="tabUpload" data-tab="upload">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="tab-icon"
+              >
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="17 8 12 3 7 8" />
+                <line x1="12" y1="3" x2="12" y2="15" />
+              </svg>
+              Upload Image
+            </button>
+            <button class="tab-btn" id="tabUrl" data-tab="url">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="tab-icon"
+              >
+                <path
+                  d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"
+                />
+                <path
+                  d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
+                />
+              </svg>
+              Paste URL
+            </button>
+          </div>
+
+          <!-- Upload Tab -->
+          <div class="tab-panel active" id="panelUpload">
+            <div class="drop-zone" id="dropZone">
+              <input type="file" id="fileInput" accept="image/*" hidden />
+              <div class="drop-zone-content" id="dropZoneContent">
+                <div class="drop-icon">
+                  <svg
+                    viewBox="0 0 64 64"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="4"
+                      y="4"
+                      width="56"
+                      height="56"
+                      rx="16"
+                      fill="url(#uploadGrad)"
+                      opacity="0.15"
+                    />
+                    <path
+                      d="M32 20v16M24 28l8-8 8 8"
+                      stroke="url(#strokeGrad)"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M16 44h32"
+                      stroke="url(#strokeGrad)"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      opacity="0.5"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="uploadGrad"
+                        x1="0"
+                        y1="0"
+                        x2="64"
+                        y2="64"
+                      >
+                        <stop offset="0%" stop-color="#7C3AED" />
+                        <stop offset="100%" stop-color="#4F46E5" />
+                      </linearGradient>
+                      <linearGradient
+                        id="strokeGrad"
+                        x1="0"
+                        y1="0"
+                        x2="64"
+                        y2="64"
+                      >
+                        <stop offset="0%" stop-color="#A78BFA" />
+                        <stop offset="100%" stop-color="#818CF8" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+                <p class="drop-text">Drag &amp; drop your image here</p>
+                <p class="drop-subtext">
+                  Supports JPG, PNG, WEBP, GIF up to 20MB
+                </p>
+                <button class="browse-btn" id="browseBtn">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    class="btn-icon"
+                  >
+                    <path
+                      d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"
+                    />
+                  </svg>
+                  Browse Files
+                </button>
+              </div>
+              <!-- Image preview inside drop zone -->
+              <div class="image-preview-wrap hidden" id="imagePreviewWrap">
+                <img
+                  id="imagePreview"
+                  src=""
+                  alt="Preview"
+                  class="image-preview"
+                />
+                <div class="preview-info">
+                  <span id="previewFileName" class="preview-name"></span>
+                  <button
+                    class="remove-btn"
+                    id="removeImageBtn"
+                    title="Remove image"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="15" y1="9" x2="9" y2="15" />
+                      <line x1="9" y1="9" x2="15" y2="15" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- URL Tab -->
+          <div class="tab-panel" id="panelUrl">
+            <p class="url-optional-label">Optimize an online image instead? (Optional)</p>
+            <div class="url-input-wrap">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="url-icon"
+              >
+                <path
+                  d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"
+                />
+                <path
+                  d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
+                />
+              </svg>
+              <input
+                type="url"
+                id="imageUrl"
+                class="url-input"
+                placeholder="https://example.com/image.jpg"
+              />
+            </div>
+            <div class="url-preview-wrap hidden" id="urlPreviewWrap">
+              <img
+                id="urlPreview"
+                src=""
+                alt="URL Preview"
+                class="image-preview url-preview-img"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- IMAGE SETTINGS ---- -->
+        <section class="card settings-section" id="settingsSection">
+          <h2 class="section-title">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="section-icon"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M20 12h2M2 12h2M17.66 17.66l-1.41-1.41M6.34 17.66l1.41-1.41"
+              />
+            </svg>
+            Processing Settings
+          </h2>
+
+          <div class="settings-grid">
+            <!-- Output Format -->
+            <div class="setting-group">
+              <label class="setting-label" for="outputFormat"
+                >Output Format</label
+              >
+              <div class="select-wrap">
+                <select id="outputFormat" class="setting-select">
+                  <option value="jpeg">JPEG</option>
+                  <option value="png">PNG</option>
+                  <option value="webp" selected>WEBP</option>
+                </select>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  class="select-arrow"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Width -->
+            <div class="setting-group">
+              <label class="setting-label" for="outputWidth">Width (px)</label>
+              <input
+                type="number"
+                id="outputWidth"
+                class="setting-input"
+                value="1280"
+                min="1"
+                max="8000"
+              />
+            </div>
+
+            <!-- Height -->
+            <div class="setting-group">
+              <label class="setting-label" for="outputHeight"
+                >Height (px)</label
+              >
+              <input
+                type="number"
+                id="outputHeight"
+                class="setting-input"
+                value="720"
+                min="1"
+                max="8000"
+              />
+            </div>
+
+            <!-- Quality Slider -->
+            <div class="setting-group setting-group--full">
+              <div class="quality-header">
+                <label class="setting-label" for="qualitySlider">Quality</label>
+                <span class="quality-value" id="qualityValue">85</span>
+              </div>
+              <div class="slider-track">
+                <input
+                  type="range"
+                  id="qualitySlider"
+                  class="quality-slider"
+                  min="10"
+                  max="100"
+                  value="85"
+                />
+                <div class="slider-labels">
+                  <span>Low (10)</span>
+                  <span>Medium (55)</span>
+                  <span>High (100)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- PROCESS BUTTON ---- -->
+        <div class="process-btn-wrap">
+          <button class="process-btn" id="processBtn">
+            <span class="process-btn-inner">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="process-icon"
+                id="processIcon"
+              >
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+              </svg>
+              <span id="processBtnText">Process Image</span>
+            </span>
+            <div class="btn-shine"></div>
+          </button>
+        </div>
+
+        <!-- ---- ERROR MESSAGE ---- -->
+        <div class="error-card hidden" id="errorCard">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            class="error-icon"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <div class="error-text">
+            <strong>No image selected</strong>
+            <span id="errorMessage"
+              >Please upload an image or paste an image URL before
+              processing.</span
+            >
+          </div>
+          <button class="error-close" id="errorClose">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- ---- LOADING / PROGRESS SECTION ---- -->
+        <section class="card loading-card hidden" id="loadingCard">
+          <div class="loading-header">
+            <div class="loading-spinner"></div>
+            <div>
+              <h3 class="loading-title">Processing your image</h3>
+              <p class="loading-subtitle">
+                Please wait while we optimize your image on AWS
+              </p>
+            </div>
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress-wrap">
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-percent" id="progressPercent">0%</span>
+          </div>
+
+          <!-- Animated Steps -->
+          <div class="steps-list" id="stepsList">
+            <div class="step" id="step-0">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v4l3 3" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Downloading Image</span>
+                <span class="step-status" id="status-0">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-1">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Uploading to S3</span>
+                <span class="step-status" id="status-1">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-2">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Triggering Lambda</span>
+                <span class="step-status" id="status-2">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-3">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Compressing Image</span>
+                <span class="step-status" id="status-3">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-4">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M4 14.899A7 7 0 1115.71 8h1.79a4.5 4.5 0 012.5 8.242"
+                  />
+                  <path d="M12 12v9" />
+                  <path d="M8 17l4 4 4-4" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Uploading Processed Image</span>
+                <span class="step-status" id="status-4">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-5">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Generating Download Link</span>
+                <span class="step-status" id="status-5">Waiting...</span>
+              </div>
+            </div>
+            <div class="step" id="step-6">
+              <div class="step-icon step-pending">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                  <polyline points="22 4 12 14.01 9 11.01" />
+                </svg>
+              </div>
+              <div class="step-content">
+                <span class="step-label">Completed</span>
+                <span class="step-status" id="status-6">Waiting...</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ---- RESULT SECTION ---- -->
+        <section class="result-section hidden" id="resultSection">
+          <h2 class="section-title result-section-title">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              class="section-icon"
+            >
+              <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            Optimization Complete
+          </h2>
+
+          <!-- Image Comparison -->
+          <div class="comparison-grid">
+            <div class="card comparison-card">
+              <div class="comparison-label original-label">Original</div>
+              <div class="comparison-img-wrap">
+                <img
+                  id="originalPreviewResult"
+                  src=""
+                  alt="Original Image"
+                  class="comparison-img"
+                />
+              </div>
+            </div>
+            <div class="comparison-arrow">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </div>
+            <div class="card comparison-card">
+              <div class="comparison-label optimized-label">Optimized</div>
+              <div class="comparison-img-wrap">
+                <img
+                  id="optimizedPreviewResult"
+                  src=""
+                  alt="Optimized Image"
+                  class="comparison-img"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Cards -->
+          <div class="stats-grid">
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--blue">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                  />
+                </svg>
+              </div>
+              <span class="stat-label">Original Size</span>
+              <span class="stat-value" id="statOriginalSize">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--green">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                </svg>
+              </div>
+              <span class="stat-label">Optimized Size</span>
+              <span class="stat-value" id="statOptimizedSize">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--purple">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <line x1="12" y1="1" x2="12" y2="23" />
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+                </svg>
+              </div>
+              <span class="stat-label">Saved</span>
+              <span class="stat-value stat-saved" id="statSaved">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--orange">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M18 20V10M12 20V4M6 20v-6" />
+                </svg>
+              </div>
+              <span class="stat-label">Compression</span>
+              <span class="stat-value stat-compress" id="statCompression"
+                >—</span
+              >
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--blue">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <span class="stat-label">Original Resolution</span>
+              <span class="stat-value" id="statOrigRes">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--green">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <span class="stat-label">New Resolution</span>
+              <span class="stat-value" id="statNewRes">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--purple">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+                  />
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+                  <line x1="12" y1="22.08" x2="12" y2="12" />
+                </svg>
+              </div>
+              <span class="stat-label">Output Format</span>
+              <span class="stat-value" id="statFormat">—</span>
+            </div>
+            <div class="card stat-card">
+              <div class="stat-icon stat-icon--orange">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <span class="stat-label">Processing Time</span>
+              <span class="stat-value" id="statTime">—</span>
+            </div>
+          </div>
+
+          <!-- Download + Reset -->
+          <div class="action-row">
+            <button class="download-btn" id="downloadBtn" disabled>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="btn-icon"
+              >
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download Optimized Image
+            </button>
+            <button class="reset-btn" id="resetBtn">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="btn-icon"
+              >
+                <polyline points="1 4 1 10 7 10" />
+                <path d="M3.51 15a9 9 0 102.13-9.36L1 10" />
+              </svg>
+              Process Another
+            </button>
+          </div>
+        </section>
+      </div>
+      <!-- /container -->
+    </main>
+
+    <!-- ========================
+       FOOTER
+  ========================= -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">Built with AWS Serverless Architecture</p>
+        <div class="footer-badges">
+          <img
+            src="https://img.shields.io/badge/-AWS%20Lambda-FF9900?style=flat&logo=awslambda&logoColor=white"
+            alt="AWS Lambda"
+          />
+          <img
+            src="https://img.shields.io/badge/-Amazon%20S3-569A31?style=flat&logo=amazons3&logoColor=white"
+            alt="Amazon S3"
+          />
+          <img
+            src="https://img.shields.io/badge/-Terraform-7B42BC?style=flat&logo=terraform&logoColor=white"
+            alt="Terraform"
+          />
+          <img
+            src="https://img.shields.io/badge/-GitHub%20Actions-2088FF?style=flat&logo=githubactions&logoColor=white"
+            alt="GitHub Actions"
+          />
+          <img
+            src="https://img.shields.io/badge/-CloudWatch-FF4F8B?style=flat&logo=amazonaws&logoColor=white"
+            alt="CloudWatch"
+          />
+          <img
+            src="https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white"
+            alt="Python"
+          />
+          <img
+            src="https://img.shields.io/badge/-Pillow-0097A7?style=flat&logo=python&logoColor=white"
+            alt="Pillow"
+          />
+        </div>
+        <p class="footer-copy">
+          &copy; 2025 Image Optimizer Pro &mdash; Abhishek Thite
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
