@@ -45,3 +45,13 @@ jobs:
       # Generate Terraform Plan
       - name: Terraform Plan
         run: terraform plan
+
+      # Sync Frontend to S3
+      - name: Upload Frontend to S3
+        run: |
+          aws s3 sync frontend/ s3://img-processor-frontend-ap-south-1 --delete
+
+      # Verify Upload
+      - name: Verify S3 Upload
+        run: |
+          aws s3 ls s3://img-processor-frontend-ap-south-1
