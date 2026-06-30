@@ -55,3 +55,30 @@ jobs:
       - name: Verify S3 Upload
         run: |
           aws s3 ls s3://img-processor-frontend-ap-south-1
+
+
+              # Package Image Processor Lambda
+      - name: Package Image Processor Lambda
+        run: |
+          cd lambda_src
+          zip -r ../image_processor.zip .
+
+      # Deploy Image Processor Lambda
+      - name: Deploy Image Processor Lambda
+        run: |
+          aws lambda update-function-code \
+            --function-name img-processor-image-processor \
+            --zip-file fileb://image_processor.zip
+
+      # Package Download Lambda
+      - name: Package Download Lambda
+        run: |
+          cd download_lambda
+          zip -r ../download_lambda.zip .
+
+      # Deploy Download Lambda
+      - name: Deploy Download Lambda
+        run: |
+          aws lambda update-function-code \
+            --function-name img-processor-download-lambda \
+            --zip-file fileb://download_lambda.zip
