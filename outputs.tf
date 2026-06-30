@@ -38,3 +38,13 @@ output "frontend_website_endpoint" {
   description = "Visit this URL to access the hosted frontend"
   value       = module.frontend_hosting.website_endpoint
 }
+
+output "cloudfront_domain_name" {
+  description = "CloudFront Domain Name"
+  value       = module.cloudfront.cloudfront_domain_name
+}
+
+output "cloudfront_distribution_id" {
+  description = "CloudFront Distribution ID"
+  value       = module.cloudfront.cloudfront_distribution_id
+}

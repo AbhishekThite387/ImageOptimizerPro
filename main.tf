@@ -109,6 +109,21 @@ module "frontend_hosting" {
   tags        = local.tags
 }
 
+module "cloudfront" {
+
+  source = "./modules/cloudfront"
+
+  project_name = var.project_name
+
+  frontend_bucket_name = module.frontend_hosting.bucket_name
+
+  frontend_website_endpoint = replace(
+    module.frontend_hosting.website_endpoint,
+    "http://",
+    ""
+  )
+}
+
 locals {
   tags = {
     Project     = var.project_name

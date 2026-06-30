@@ -51,6 +51,12 @@ jobs:
         run: |
           aws s3 sync frontend/ s3://img-processor-frontend-ap-south-1 --delete
 
+      - name: Invalidate CloudFront Cache
+        run: |
+          aws cloudfront create-invalidation \
+          --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+          --paths "/*"
+
       # Verify Upload
       - name: Verify S3 Upload
         run: |
