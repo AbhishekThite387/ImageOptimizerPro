@@ -18,7 +18,13 @@ logger.setLevel(logging.INFO)
 
 # AWS Clients
 
-s3 = boto3.client("s3")
+from botocore.config import Config
+
+s3 = boto3.client(
+    "s3",
+    region_name="ap-south-1",
+    config=Config(s3={"addressing_style": "virtual"})
+)
 
 
 # Environment Variables

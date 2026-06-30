@@ -101,6 +101,14 @@ module "apigateway" {
   tags = local.tags
 }
 
+# ── 5. Frontend Hosting (S3 Static Website) ────────────────────────────────────
+module "frontend_hosting" {
+  source = "./modules/frontend_hosting"
+
+  bucket_name = var.frontend_bucket_name
+  tags        = local.tags
+}
+
 locals {
   tags = {
     Project     = var.project_name

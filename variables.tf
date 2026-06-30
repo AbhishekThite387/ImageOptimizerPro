@@ -61,3 +61,10 @@ variable "duration_threshold_ms" {
   type    = number
   default = 45000
 }
+
+# Frontend Hosting
+variable "frontend_bucket_name" {
+  description = "Name of the S3 bucket used to host the static frontend website"
+  type        = string
+  default     = ""
+}

@@ -568,7 +568,7 @@ processBtn.addEventListener("click", async () => {
     const start = performance.now();
 
     const response = await fetch(
-      "https://6xl63gio08.execute-api.ap-south-1.amazonaws.com/dev/process",
+      "https://9l3zm7nekk.execute-api.ap-south-1.amazonaws.com/dev/process",
       {
         method: "POST",
         headers: {
@@ -577,7 +577,6 @@ processBtn.addEventListener("click", async () => {
         body: JSON.stringify(payload),
       },
     );
-
     const data = await response.json();
 
     const end = performance.now();
@@ -628,10 +627,22 @@ processBtn.addEventListener("click", async () => {
     const optimizedResponse = await fetch(data.download_url);
 
     // Debug — log everything useful so you can inspect in DevTools
-    console.log("[Optimizer] optimized response status:", optimizedResponse.status);
-    console.log("[Optimizer] optimized Content-Length header:", optimizedResponse.headers.get("Content-Length"));
-    console.log("[Optimizer] optimized Content-Type header:", optimizedResponse.headers.get("Content-Type"));
-    console.log("[Optimizer] optimized Transfer-Encoding header:", optimizedResponse.headers.get("Transfer-Encoding"));
+    console.log(
+      "[Optimizer] optimized response status:",
+      optimizedResponse.status,
+    );
+    console.log(
+      "[Optimizer] optimized Content-Length header:",
+      optimizedResponse.headers.get("Content-Length"),
+    );
+    console.log(
+      "[Optimizer] optimized Content-Type header:",
+      optimizedResponse.headers.get("Content-Type"),
+    );
+    console.log(
+      "[Optimizer] optimized Transfer-Encoding header:",
+      optimizedResponse.headers.get("Transfer-Encoding"),
+    );
 
     // Read the full body as an ArrayBuffer — byteLength is always correct
     // regardless of chunked encoding, gzip, or missing Content-Length.
@@ -643,7 +654,9 @@ processBtn.addEventListener("click", async () => {
     // Convert the buffer to a Blob for preview and download.
     // Using a local blob:// URL means the `download` attribute is honoured
     // by the browser (cross-origin pre-signed S3 URLs ignore it).
-    const contentType = optimizedResponse.headers.get("Content-Type") || "image/" + outputFormat.value.toLowerCase();
+    const contentType =
+      optimizedResponse.headers.get("Content-Type") ||
+      "image/" + outputFormat.value.toLowerCase();
     const optimizedBlob = new Blob([optimizedBuffer], { type: contentType });
     const optimizedObjectUrl = URL.createObjectURL(optimizedBlob);
 
@@ -676,26 +689,37 @@ processBtn.addEventListener("click", async () => {
 
     // ── Statistics ────────────────────────────────────────────────────
     const saved = originalImageSize - optimizedSize;
-    const compressionPct = originalImageSize > 0
-      ? ((saved / originalImageSize) * 100).toFixed(1)
-      : "0.0";
+    const compressionPct =
+      originalImageSize > 0
+        ? ((saved / originalImageSize) * 100).toFixed(1)
+        : "0.0";
 
-    console.log("[Optimizer] originalImageSize:", originalImageSize, "optimizedSize:", optimizedSize, "saved:", saved);
+    console.log(
+      "[Optimizer] originalImageSize:",
+      originalImageSize,
+      "optimizedSize:",
+      optimizedSize,
+      "saved:",
+      saved,
+    );
 
-    statOriginalSize.textContent  = formatBytes(originalImageSize);
+    statOriginalSize.textContent = formatBytes(originalImageSize);
     statOptimizedSize.textContent = formatBytes(optimizedSize);
-    statSaved.textContent         = formatBytes(Math.abs(saved));
-    statCompression.textContent   = compressionPct + "%";
-    statOrigRes.textContent       = (originalWidth && originalHeight) ? `${originalWidth} × ${originalHeight}` : "—";
+    statSaved.textContent = formatBytes(Math.abs(saved));
+    statCompression.textContent = compressionPct + "%";
+    statOrigRes.textContent =
+      originalWidth && originalHeight
+        ? `${originalWidth} × ${originalHeight}`
+        : "—";
 
     hideLoading();
 
-    originalPreviewResult.src  = originalPreviewSrc;
-    optimizedPreviewResult.src = optimizedObjectUrl;   // use blob URL for preview too
+    originalPreviewResult.src = originalPreviewSrc;
+    optimizedPreviewResult.src = optimizedObjectUrl; // use blob URL for preview too
 
     statFormat.textContent = outputFormat.value.toUpperCase();
     statNewRes.textContent = `${optimizedWidth} × ${optimizedHeight}`;
-    statTime.textContent   = ((end - start) / 1000).toFixed(2) + " sec";
+    statTime.textContent = ((end - start) / 1000).toFixed(2) + " sec";
 
     resultSection.classList.remove("hidden");
 

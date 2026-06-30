@@ -29,3 +29,12 @@ output "api_invoke_url" {
 output "process_endpoint" {
   value = module.apigateway.process_endpoint
 }
+
+output "frontend_bucket_name" {
+  value = module.frontend_hosting.bucket_name
+}
+
+output "frontend_website_endpoint" {
+  description = "Visit this URL to access the hosted frontend"
+  value       = module.frontend_hosting.website_endpoint
+}

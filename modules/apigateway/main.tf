@@ -129,19 +129,19 @@ resource "aws_api_gateway_deployment" "deployment" {
   rest_api_id = aws_api_gateway_rest_api.image_api.id
 
   depends_on = [
-  aws_api_gateway_integration.lambda,
-  aws_api_gateway_integration.options
-]
+    aws_api_gateway_integration.lambda,
+    aws_api_gateway_integration.options
+  ]
 
-triggers = {
-  redeployment = sha1(jsonencode([
-    aws_api_gateway_resource.process.id,
-    aws_api_gateway_method.process_post.id,
-    aws_api_gateway_method.options.id,
-    aws_api_gateway_integration.lambda.id,
-    aws_api_gateway_integration.options.id
-  ]))
-}
+  triggers = {
+    redeployment = sha1(jsonencode([
+      aws_api_gateway_resource.process.id,
+      aws_api_gateway_method.process_post.id,
+      aws_api_gateway_method.options.id,
+      aws_api_gateway_integration.lambda.id,
+      aws_api_gateway_integration.options.id
+    ]))
+  }
 
   lifecycle {
     create_before_destroy = true
