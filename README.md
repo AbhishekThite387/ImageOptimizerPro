@@ -1,5 +1,6 @@
 # Automated Image Processing System — Terraform
 
+#Test
 Serverless image processing on AWS using Terraform modules.
 
 ## Architecture
@@ -42,6 +43,7 @@ Pillow is not included in the Lambda runtime. Use a public pre-built layer:
 3. Paste it into `terraform.tfvars` → `pillow_layer_arn`
 
 Example format:
+
 ```
 arn:aws:lambda:ap-south-1:770693421928:layer:Klayers-p312-Pillow:X
 ```
@@ -57,16 +59,19 @@ terraform apply
 ## Step 3 — Test
 
 Upload any image to the source bucket:
+
 ```bash
 aws s3 cp test.jpg s3://<source-bucket-name>/
 ```
 
 Check the destination bucket after a few seconds:
+
 ```bash
 aws s3 ls s3://<destination-bucket-name>/processed/
 ```
 
 Check logs:
+
 ```bash
 aws logs tail /aws/lambda/img-processor-image-processor --follow
 ```
@@ -80,7 +85,7 @@ terraform destroy
 ## Module Inputs Summary
 
 | Module     | Key inputs                                      |
-|------------|-------------------------------------------------|
+| ---------- | ----------------------------------------------- |
 | s3         | bucket names, lambda_arn                        |
 | iam        | source/destination bucket ARNs                  |
 | lambda     | role ARN, source dir, env vars, pillow layer    |
