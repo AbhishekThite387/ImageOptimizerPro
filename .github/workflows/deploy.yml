@@ -88,3 +88,16 @@ jobs:
           aws lambda update-function-code \
             --function-name img-processor-download-lambda \
             --zip-file fileb://download_lambda.zip
+
+      # Package Image Processor Lambda
+      - name: Package Image Processor Lambda
+        run: |
+          cd lambda_src
+           zip -r ../image-processor.zip .
+
+      # Deploy Image Processor Lambda
+      - name: Deploy Image Processor Lambda
+        run: |
+          aws lambda update-function-code \
+          --function-name img-processor-image-processor \
+          --zip-file fileb://image-processor.zip
