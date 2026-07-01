@@ -101,3 +101,16 @@ jobs:
           aws lambda update-function-code \
           --function-name img-processor-image-processor \
           --zip-file fileb://image-processor.zip
+
+        # Package Download Lambda
+      - name: Package Download Lambda
+        run: |
+          cd download_lambda
+          zip -r ../download-lambda.zip .
+
+      # Deploy Download Lambda
+      - name: Deploy Download Lambda
+        run: |
+          aws lambda update-function-code \
+          --function-name img-processor-download-lambda \
+          --zip-file fileb://download-lambda.zip
