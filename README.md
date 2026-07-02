@@ -5,7 +5,7 @@
 
 ## 🌐 Live Demo
 
-**Website:** https://d3vq2xd1kozf8j.cloudfront.net/
+**Website:** https://d2rzx2ftc8aeso.cloudfront.net
 
 ## 📖 Project Overview
 
