@@ -1,92 +1,145 @@
-# Automated Image Processing System — Terraform
+# 🚀 Automated Image Processing System
 
-#Test
-Serverless image processing on AWS using Terraform modules.
+> A production-ready **Serverless Image Processing Platform** built with
+> **AWS, Terraform, Python, and GitHub Actions**.
 
-## Architecture
+## 🌐 Live Demo
 
-```
-User → S3 (source) → Lambda (resize/compress) → S3 (destination)
-                          ↓
-                    CloudWatch (logs + alarms + dashboard)
-```
+**Website:** `https://d3vq2xd1kozf8j.cloudfront.net/`
 
-## Project Structure
+## 📖 Project Overview
 
-```
-image-processing-terraform/
-├── main.tf                  # Root — wires all modules
-├── variables.tf
-├── outputs.tf
-├── terraform.tfvars         # Your values go here
-├── lambda_src/
-│   └── handler.py           # Python image processor (Pillow)
-└── modules/
-    ├── s3/                  # Source + destination buckets, event notification
-    ├── iam/                 # Lambda execution role + S3 policies
-    ├── lambda/              # Lambda function + S3 invoke permission
-    └── cloudwatch/          # Log group, alarms, dashboard
-```
+The Automated Image Processing System is a fully serverless AWS
+application that allows users to upload an image, automatically resize,
+compress, and convert it (JPEG/PNG/WEBP), then securely download the
+optimized image through a temporary Amazon S3 Pre-Signed URL.
 
-## Prerequisites
+The infrastructure is provisioned using **Terraform**, while **GitHub
+Actions** automates frontend and Lambda deployments.
 
-- Terraform >= 1.6
-- AWS CLI configured (`aws configure`)
-- AWS account with IAM permissions for S3, Lambda, CloudWatch, IAM
+## ✨ Features
 
-## Step 1 — Get Pillow Lambda Layer ARN
+- Serverless AWS architecture
+- Image resize, compression and format conversion
+- Amazon CloudFront CDN
+- API Gateway REST API
+- Event-driven processing using Amazon S3 events
+- Secure downloads using Pre-Signed URLs
+- Infrastructure as Code (Terraform)
+- GitHub Actions CI/CD
+- CloudWatch monitoring
 
-Pillow is not included in the Lambda runtime. Use a public pre-built layer:
+## 🏗️ Architecture
 
-1. Go to: https://github.com/keithrozario/Klayers
-2. Find the ARN for **Pillow**, **Python 3.12**, **ap-south-1**
-3. Paste it into `terraform.tfvars` → `pillow_layer_arn`
-
-Example format:
-
-```
-arn:aws:lambda:ap-south-1:770693421928:layer:Klayers-p312-Pillow:X
-```
-
-## Step 2 — Deploy
-
-```bash
-terraform init
-terraform plan
-terraform apply
-```
-
-## Step 3 — Test
-
-Upload any image to the source bucket:
-
-```bash
-aws s3 cp test.jpg s3://<source-bucket-name>/
-```
-
-Check the destination bucket after a few seconds:
-
-```bash
-aws s3 ls s3://<destination-bucket-name>/processed/
+```text
+User
+ │
+ ▼
+CloudFront
+ │
+ ▼
+Frontend S3 Bucket
+ │
+ ▼
+API Gateway
+ │
+ ▼
+Download Lambda
+ │
+ ▼
+Source S3 Bucket
+ │
+ ▼
+S3 ObjectCreated Event
+ │
+ ▼
+Image Processor Lambda
+ │
+ ▼
+Destination S3 Bucket
+ │
+ ▼
+Pre-Signed URL
+ │
+ ▼
+Browser Download
 ```
 
-Check logs:
+## 🔄 Workflow
 
-```bash
-aws logs tail /aws/lambda/img-processor-image-processor --follow
+1.  User opens the CloudFront website.
+2.  Frontend sends image to API Gateway.
+3.  Download Lambda uploads image to Source S3.
+4.  S3 ObjectCreated triggers Image Processor Lambda.
+5.  Pillow resizes, compresses and converts the image.
+6.  Optimized image is stored in Destination S3.
+7.  Download Lambda generates a temporary Pre-Signed URL.
+8.  Browser downloads the optimized image.
+
+## ☁️ AWS Services
+
+Service Purpose
+
+---
+
+S3 Static website and image storage
+Lambda Image processing
+API Gateway REST API
+CloudFront CDN
+IAM Permissions
+CloudWatch Monitoring
+
+## 📁 Terraform Modules
+
+```text
+modules/
+├── apigateway/
+├── cloudfront/
+├── cloudwatch/
+├── download_lambda/
+├── frontend_hosting/
+├── iam/
+├── lambda/
+└── s3/
 ```
 
-## Step 4 — Destroy
+## ⚙️ terraform.tfvars
 
-```bash
-terraform destroy
+Stores deployment-specific variables like region, project name,
+environment, bucket names, and Lambda configuration. It should not be
+committed to Git.
+
+## 🚀 GitHub Actions
+
+Workflow file:
+
+```text
+.github/workflows/deploy.yml
 ```
 
-## Module Inputs Summary
+Pipeline: - Upload frontend to S3 - Deploy Lambda functions - Invalidate
+CloudFront cache
 
-| Module     | Key inputs                                      |
-| ---------- | ----------------------------------------------- |
-| s3         | bucket names, lambda_arn                        |
-| iam        | source/destination bucket ARNs                  |
-| lambda     | role ARN, source dir, env vars, pillow layer    |
-| cloudwatch | function name, retention days, alarm thresholds |
+## 🔐 Security
+
+- IAM Least Privilege
+- Private S3 Buckets
+- HTTPS
+- Pre-Signed URLs
+- GitHub Secrets
+
+## 📊 Monitoring
+
+CloudWatch Logs and metrics monitor Lambda execution and troubleshoot
+issues.
+
+## 📂 .gitignore
+
+Excludes: - .terraform/ - terraform.tfstate - terraform.tfvars - .env -
+Lambda ZIP files - Python cache
+
+## 👨‍💻 Author
+
+**Abhishek Thite**
+
+GitHub: https://github.com/AbhishekThite387
